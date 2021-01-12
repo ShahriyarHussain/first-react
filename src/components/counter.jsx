@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 
 class Counter extends Component {
     state = {
-        value: this.props.value,
+        value: this.props.counter.value,
         tags: [],
     };
 
@@ -27,8 +27,7 @@ class Counter extends Component {
         // console.log("Increment", this );
     }
 
-    handleDecrement = () => {
-        console.log("Cannot go below 0");
+    handleDecrement = () => {        
         if (this.state.value === 0) return null;
         this.setState({value: this.state.value - 1});
         // console.log("Increment", this );
@@ -46,6 +45,7 @@ class Counter extends Component {
                 <span style={this.styles, {fontSize: 15}} className={this.getBadgeClasses()}>{this.formatCount()}</span>                
                 <button onClick={this.handleIncrement} style={this.styles} className="btn btn-secondary btn-sm m-1">Add</button>
                 <button onClick={this.handleDecrement} style={this.styles} className="btn btn-primary btn-sm m-1">Remove</button>
+                <button onClick={() => this.props.onDelete(this.props.counter.id)} className="btn btn-danger btn-sm m-2">Delete</button>
                 <br></br>
                 {/* {this.state.tags.length === 0 && "Please add some tags"}
                 {this.renderTags()} */}

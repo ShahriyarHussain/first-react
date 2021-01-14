@@ -10,27 +10,13 @@ class Counter extends Component {
         fontWeight: "bold"
     };
 
-    // constructor() {
-    //     super();
-    //     this.handleIncrement = this.handleIncrement.bind.this;
-    // }
-
-    // handleIncrement = product => {
-    //     console.log(product);
-    //     this.setState({count: this.state.count + 1});
-    //     // console.log("Increment", this );
-    // }
-
-    handleIncrement = () => {
-        // console.log(product);
-        this.setState({value: this.state.value + 1});
-        // console.log("Increment", this );
+    handleIncrement = () => {        
+        this.setState({value: this.state.value + 1});        
     }
 
     handleDecrement = () => {        
         if (this.state.value === 0) return null;
-        this.setState({value: this.state.value - 1});
-        // console.log("Increment", this );
+        this.setState({value: this.state.value - 1});        
     }
 
     renderTags() {
@@ -40,15 +26,13 @@ class Counter extends Component {
 
     render() { 
         return (
-            <React.Fragment>  
+            <React.Fragment>                  
                 {this.props.children}              
                 <span style={this.styles, {fontSize: 15}} className={this.getBadgeClasses()}>{this.formatCount()}</span>                
                 <button onClick={this.handleIncrement} style={this.styles} className="btn btn-secondary btn-sm m-1">Add</button>
                 <button onClick={this.handleDecrement} style={this.styles} className="btn btn-primary btn-sm m-1">Remove</button>
                 <button onClick={() => this.props.onDelete(this.props.counter.id)} className="btn btn-danger btn-sm m-2">Delete</button>
-                <br></br>
-                {/* {this.state.tags.length === 0 && "Please add some tags"}
-                {this.renderTags()} */}
+                <br></br>                
             </React.Fragment>
         );
     }
@@ -61,8 +45,7 @@ class Counter extends Component {
 
     formatCount(){
         const {value: count} = this.state;
-        return count;
-        // return count === 0 ? 'Zero': count;
+        return count;        
     }
 }
  

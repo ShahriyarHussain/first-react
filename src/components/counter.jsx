@@ -7,6 +7,7 @@ class Counter extends Component {
     };
 
     render() { 
+
         return (
             <React.Fragment>                  
                 {this.props.children}              
